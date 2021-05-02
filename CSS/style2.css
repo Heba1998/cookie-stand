@@ -1,0 +1,19 @@
+body{
+    background-image: url("../img/background1.jpg");
+    width: 500px;
+    margin: 50px;
+    padding: 10px;
+    color: #0a0305;
+    font-family:Georgia;
+    padding: 19px;
+    text-align: center;
+    border: salmon 15px ridge;
+}
+
+header{
+    background-color: #ffc0b6;
+    justify-content: center;
+    text-align: center;
+    border: salmon 15px ridge;
+   
+}
