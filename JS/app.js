@@ -34,7 +34,7 @@ randomCus : function (){
   theParent.appendChild(list);
   for (let i=0;i<hours.length;i++){
       let listItm=document.createElement('li');
-      listItm.textContent=hours[i]+':'+Seattle.randomPerHour[i]+' cookies';
+      listItm.textContent=hours[i]+' : '+Seattle.randomPerHour[i]+'  cookies';
       list.appendChild(listItm);
   }
 
@@ -84,7 +84,7 @@ randomCus : function (){
   theParent.appendChild(list);
   for (let i=0;i<hours.length;i++){
       let listItm=document.createElement('li');
-      listItm.textContent=hours[i]+':'+Tokyo.randomPerHour[i]+' cookies';
+      listItm.textContent=hours[i]+' : '+Tokyo.randomPerHour[i]+'  cookies';
       list.appendChild(listItm);
   }
 
@@ -137,7 +137,7 @@ randomCus : function (){
   theParent.appendChild(list);
   for (let i=0;i<hours.length;i++){
       let listItm=document.createElement('li');
-      listItm.textContent=hours[i]+':'+Dubai.randomPerHour[i]+' cookies';
+      listItm.textContent=hours[i]+' : '+Dubai.randomPerHour[i]+'  cookies';
       list.appendChild(listItm);
   }
 
@@ -189,7 +189,7 @@ randomCus : function (){
   theParent.appendChild(list);
   for (let i=0;i<hours.length;i++){
       let listItm=document.createElement('li');
-      listItm.textContent=hours[i]+':'+Paris.randomPerHour[i]+' cookies';
+      listItm.textContent=hours[i]+' : '+Paris.randomPerHour[i]+'  cookies';
       list.appendChild(listItm);
   }
 
@@ -241,7 +241,7 @@ randomCus : function (){
   theParent.appendChild(list);
   for (let i=0;i<hours.length;i++){
       let listItm=document.createElement('li');
-      listItm.textContent=hours[i]+':'+Lima.randomPerHour[i]+' cookies';
+      listItm.textContent=hours[i]+' : '+Lima.randomPerHour[i]+'  cookies';
       list.appendChild(listItm);
   }
 
