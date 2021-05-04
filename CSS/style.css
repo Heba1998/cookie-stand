@@ -53,13 +53,76 @@ p{
  margin: 15px;
   }
 
-  .footer1{
-    color: #fde9e6;
-  }
+
   
   main{
     background-color: #FFB5AA;
     border: salmon 15px ridge;
     font-family: cursive;
   
+  }
+
+
+
+  .logo{
+  
+    float: right;
+    height: 50px;
+    width: 100px;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .prizes{
+    margin: 20px 60px 20px 60px ;
+    width: 200px;
+    height: 300px;
+    text-align: justify;
+    border-radius: 70px;
+   
+    border: 18px double salmon;
+
+  }
+
+
+  .first-article ul li{
+    display:inline-block;
+
+  margin:20px 60px 20px 70px ;
+  }
+
+
+  .first-article img{
+    margin:20px 95px 20px 90px ;
+    height: 250px;
+    width: 200px;
+    border-radius: 70px;
+    border: 18px double salmon;
+
+  }
+
+  main article p{
+    font-family: cursive;
+    font-size: 20px;
+    text-decoration-line: underline;
+  }
+
+
+  footer{
+    background-color: #FFB5AA;
+    border: salmon 15px ridge;
+    width: auto;
+    height: 400px;
+    font-size: 20px;
+    margin: 10px;
+  }
+
+
+
+  footer img{
+    float: left;
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+
   }

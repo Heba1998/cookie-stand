@@ -7,7 +7,7 @@ body{
     border: salmon 15px ridge;
 }
 
-header{
+header, main{
     background-color: #ffc0b6;
     justify-content: center;
     text-align: center;
