@@ -1,6 +1,92 @@
-'use strict'
-let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','1:00PM','2:00PM','3:00PM','4:00PM','5:00PM','6:00PM','7:00PM'];
 
+'use strict'
+let hours = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00AM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'];
+
+
+function Cookies(location, minCus, maxCus, avg) {
+  this.location = location;
+  this.minCus = minCus;
+  this.maxCus = maxCus;
+  this.avg = avg;
+  this.randomPerHour = [];
+  this.DailySales = 0;
+  this.hourToSale();
+
+}
+
+Cookies.prototype.Random = function () {
+  let range = this.maxCus - this.minCus;
+  let random = Math.floor(Math.random() * range + this.minCus);
+  return random;
+}
+
+Cookies.prototype.hourToSale = function () {
+  for (let i = 0; i < hours.length; i++) {
+
+    let avgCookieSales = Math.floor(this.Random() * this.avg);
+    this.randomPerHour.push(avgCookieSales);
+    this.DailySales += avgCookieSales;
+
+  }
+}
+
+
+let Seattle = new Cookies('Seattle', 23, 65, 6.5);
+let Dubai = new Cookies('Dubai', 11, 38, 3.7);
+let Tokyo = new Cookies('Tokyo', 3, 24, 1.2);
+let Paris = new Cookies('Paris', 20, 38, 2.3);
+let Lima = new Cookies('Lima', 2, 16, 4.6);
+
+let locations = [Seattle, Dubai, Tokyo, Paris, Lima];
+
+
+let parent = document.getElementById('sales-Data');
+console.log(parent);
+let CreateTable = document.createElement('table');
+parent.appendChild(CreateTable);
+
+let FirstRow = document.createElement('tr');
+CreateTable.appendChild(FirstRow);
+let ContentOfFirstRow = document.createElement('th');
+FirstRow.appendChild(ContentOfFirstRow);
+ContentOfFirstRow.textContent = '.........';
+for (let i=0;i<hours.length;i++){
+let ContentOfOtherRows = document.createElement('th');
+FirstRow.appendChild(ContentOfOtherRows);
+ContentOfOtherRows.textContent = hours[i];
+}
+
+let LastColumn=document.createElement('th');
+FirstRow.appendChild(LastColumn);
+LastColumn.textContent= 'total cookies per day'
+
+
+
+ for (let i = 0; i < locations.length; i++) {
+     
+     let ContentRow = document.createElement('tr');
+     CreateTable.appendChild(ContentRow);
+
+     
+      let index = document.createElement('td');
+      ContentRow.appendChild(index);
+      index.textContent = locations[i].location;
+
+      for (let j=0;j<hours.length;j++){
+        let totalindex = document.createElement('td');
+      ContentRow.appendChild(totalindex);
+      totalindex.textContent = locations[i].randomPerHour[j];
+        }
+
+        let LastColumn=document.createElement('td');
+        ContentRow.appendChild(LastColumn);
+        LastColumn.textContent=locations[i].DailySales;
+
+ }
+
+
+
+ 
 // let Seattle = {
 //     location : 'Seattle',
 //     minCus : 23 ,
@@ -14,10 +100,10 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 //    let  Count=Math.random() * range + Seattle.minCus;
 //      return Math.ceil(Count);
 //  },
-    
+
 //   hourSales : function(){
 //   for (let i=0;i<hours.length;i++){
-    
+
 //   let cookiesNum= Math.ceil(Seattle.randomCus() * Seattle.avgCookieSales);
 //   Seattle.randomPerHour.push(cookiesNum);
 //   Seattle.dailySales += cookiesNum ;
@@ -64,10 +150,10 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 //    let  Count=Math.random() * range + Tokyo.minCus;
 //      return Math.ceil(Count);
 //  },
-    
+
 //   hourSales : function(){
 //   for (let i=0;i<hours.length;i++){
-    
+
 //   let cookiesNum= Math.ceil(Tokyo.randomCus() * Tokyo.avgCookieSales);
 //   Tokyo.randomPerHour.push(cookiesNum);
 //   Tokyo.dailySales += cookiesNum ;
@@ -100,10 +186,10 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 
 
 
-    
-     
-                
- 
+
+
+
+
 //   let Dubai = {
 //     location : 'Dubai',
 //     minCus : 23 ,
@@ -117,10 +203,10 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 //    let  Count=Math.random() * range + Dubai.minCus;
 //      return Math.ceil(Count);
 //  },
-    
+
 //   hourSales : function(){
 //   for (let i=0;i<hours.length;i++){
-    
+
 //   let cookiesNum= Math.ceil(Dubai.randomCus() * Dubai.avgCookieSales);
 //   Dubai.randomPerHour.push(cookiesNum);
 //   Dubai.dailySales += cookiesNum ;
@@ -169,10 +255,10 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 //    let  Count=Math.random() * range + Paris.minCus;
 //      return Math.ceil(Count);
 //  },
-    
+
 //   hourSales : function(){
 //   for (let i=0;i<hours.length;i++){
-    
+
 //   let cookiesNum= Math.ceil(Paris.randomCus() * Paris.avgCookieSales);
 //   Paris.randomPerHour.push(cookiesNum);
 //   Paris.dailySales += cookiesNum ;
@@ -221,10 +307,10 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 //    let  Count=Math.random() * range + Lima.minCus;
 //      return Math.ceil(Count);
 //  },
-    
+
 //   hourSales : function(){
 //   for (let i=0;i<hours.length;i++){
-    
+
 //   let cookiesNum= Math.ceil(Lima.randomCus() * Lima.avgCookieSales);
 //   Lima.randomPerHour.push(cookiesNum);
 //   Lima.dailySales += cookiesNum ;
@@ -254,130 +340,3 @@ let hours = ['6:00AM','7:00AM','8:00AM','9:00AM','10:00AM','11:00AM','12:00AM','
 
 //   Lima.hourSales();
 //   Lima.render();
-
-
-function Cookies(location, minCus, maxCus, avg){
-  this.location = location;
-  this.minCus = minCus;
-  this.maxCus = maxCus;
-  this.avg = avg;
-  this.randomPerHour = [];
-  this.DailySales = 0;
-
-  this.tableContant();
-}
-
-Cookies.prototype.RandomValue = function() {
-    
-    let range = this.maxCus - this.minCus;
-
-  let random = Math.floor(Math.random() * range + this.minCus);
-
-  return random;
-}
-
-Cookies.prototype.tableContant = function(){
-  for (let i = 0; i < hours.length; i++) {
-
-      let avgCookieSales = Math.ceil(this.RandomValue() * this.avg);
-
-      this.randomPerHour.push(avgCookieSales);
-      this.DailySales += avgCookieSales;
-     
-    }
-}
-
-
-Cookies.prototype.outputToHTML = function(table) {
-  let tr = document.createElement('tr');
-  table.appendChild(tr);
-
-  let td = document.createElement('td');
-  tr.appendChild(td);
-  td.textContent = this.location;
-
-  for(let i=0; i<hours.length ; i++) {
-    td = document.createElement('td');
-    tr.appendChild(td);
-    td.textContent = this.randomPerHour[i];
-  }
-
-  td = document.createElement('td');
-  tr.appendChild(td);
-  td.textContent = this.DailySales;
-  console.log(this.DailySales);
-}
-
-
-// foorter row function
-
-function outputFRow(table) {
-    let tr = document.createElement('tr');
-    table.appendChild(tr);
-    let td = document.createElement('td');
-    tr.appendChild(td);
-    td.textContent = 'Total#';
-  
-    let totalNum = 0;
-    for (let j=0; j< hours.length ; j++) {
-      td = document.createElement('td');
-      tr.appendChild(td);
-  
-      let count = 0;
-      for (let i=0; i < locations.length ; i ++) {
-        let location = locations[i];
-        count += location.randomPerHour[j];
-      }
-      td.textContent = count;
-      totalNum += count;
-  
-    }
-  
-    td = document.createElement('td');
-    tr.appendChild(td);
-    td.textContent = totalNum;
-  }
-
-// Header row function
-function outputHRow(table) {
-  let tr = document.createElement('tr');
-  table.appendChild(tr);
-  let th = document.createElement('th');
-
-  tr.appendChild(th);
-
-  for(let i=0; i <hours.length; i++){
-    th = document.createElement('th');
-    tr.appendChild(th);
-    th.textContent = hours[i];
-  }
-
-  th = document.createElement('th');
-  tr.appendChild(th);
-  th.textContent = 'Daily Location Total'
-}
-    
-
-
-
-
-let Seattle = new Cookies('Seattle',23, 65, 6.5);
-let Dubai = new Cookies('Dubai',11, 38, 3.7);
-let Tokyo = new Cookies('Tokyo',3, 24, 1.2);
-let Paris = new Cookies('Paris',20, 38, 2.3);
-let Lima = new Cookies('Lima',2, 16, 4.6);
-
-
-let locations = [Seattle, Dubai, Tokyo, Paris, Lima];
-
-
-let content = document.getElementById('sales-Data');
-let table = document.createElement('table');
-content.appendChild(table);
-outputHRow(table);
-for (let i = 0; i < locations.length; i++) {
-  let location = locations[i];
-  location.outputToHTML(table);
-}
-
-outputFRow(table);
