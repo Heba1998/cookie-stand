@@ -49,7 +49,7 @@ let FirstRow = document.createElement('tr');
 CreateTable.appendChild(FirstRow);
 let ContentOfFirstRow = document.createElement('th');
 FirstRow.appendChild(ContentOfFirstRow);
-ContentOfFirstRow.textContent = '.........';
+ContentOfFirstRow.textContent = '         ';
 for (let i=0;i<hours.length;i++){
 let ContentOfOtherRows = document.createElement('th');
 FirstRow.appendChild(ContentOfOtherRows);
