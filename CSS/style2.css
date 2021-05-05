@@ -7,10 +7,27 @@ body{
     border: salmon 15px ridge;
 }
 
-header, main{
+
+header{
     background-color: #ffc0b6;
     justify-content: center;
     text-align: center;
     border: salmon 15px ridge;
-   
+    border-style: inset;
+    height: 100px;
+
 }
+ main{
+    background-color: #ffc0b6;
+    justify-content: center;
+    text-align: center;
+    border: salmon 15px ridge;
+    border-style: inset;
+}
+
+#MyForm{
+    text-align: left;
+    border-style: inset;
+    
+}
+

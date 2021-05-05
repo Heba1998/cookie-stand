@@ -12,6 +12,37 @@
     
   </header>
   <main>
+    <form id="MyForm">
+      <fieldset>
+          <label for="location"> Location</label>
+          <input type="text" name="location" id="locationID"placeholder="shop location " />
+          <br />
+          <br />
+          <label for="Minimum">Minimum</label>
+          <input type="number" id="minCusID" name="Minimum" min="0" placeholder="Please write the number" >
+
+          <br />
+          <br />
+          <label for="Maximum">Maximum</label>
+          <input type="number" id="maxCusID" name="Maximum" min="0" placeholder="Please write the number" >
+
+          <br />
+          <br />
+          
+          <label for="average">average</label>
+          <input type="number" id="avgID" name="average"  min="0" placeholder="You can add a decimal number" step="any">
+          <br />
+          <br />
+          <input type="submit" value="Add location" />
+          <input type="reset" value="reset" />
+
+      </fieldset>
+  </form>
+
+
+
+
+
     <div id="sales-Data"></div>
     <script src="JS/app.js"></script>
   </main>
