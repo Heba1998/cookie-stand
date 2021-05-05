@@ -40,12 +40,17 @@ let Lima = new Cookies('Lima', 2, 16, 4.6);
 let locations = [Seattle, Dubai, Tokyo, Paris, Lima];
 
 
+
 let parent = document.getElementById('sales-Data');
 console.log(parent);
 let CreateTable = document.createElement('table');
 parent.appendChild(CreateTable);
 
-let FirstRow = document.createElement('tr');
+
+
+// header
+function header () {
+  let FirstRow = document.createElement('tr');
 CreateTable.appendChild(FirstRow);
 let ContentOfFirstRow = document.createElement('th');
 FirstRow.appendChild(ContentOfFirstRow);
@@ -59,30 +64,77 @@ ContentOfOtherRows.textContent = hours[i];
 let LastColumn=document.createElement('th');
 FirstRow.appendChild(LastColumn);
 LastColumn.textContent= 'total cookies per day'
+}
+header();
+
+
+// table content 
+Cookies.prototype.render=function() {
+  let ContentRow = document.createElement('tr');
+  CreateTable.appendChild(ContentRow);
+
+  let index = document.createElement('td');
+  ContentRow.appendChild(index);
+  index.textContent = this.location;
 
 
 
- for (let i = 0; i < locations.length; i++) {
-     
-     let ContentRow = document.createElement('tr');
-     CreateTable.appendChild(ContentRow);
+  for (let j=0;j<hours.length;j++){
+    let totalindex = document.createElement('td');
+  ContentRow.appendChild(totalindex);
+  totalindex.textContent = this.randomPerHour[j];
+    }
 
-     
-      let index = document.createElement('td');
-      ContentRow.appendChild(index);
-      index.textContent = locations[i].location;
+    
+  let LastColumn=document.createElement('td');
+  ContentRow.appendChild(LastColumn);
+  LastColumn.textContent=this.DailySales;
 
-      for (let j=0;j<hours.length;j++){
-        let totalindex = document.createElement('td');
-      ContentRow.appendChild(totalindex);
-      totalindex.textContent = locations[i].randomPerHour[j];
-        }
+}
 
-        let LastColumn=document.createElement('td');
-        ContentRow.appendChild(LastColumn);
-        LastColumn.textContent=locations[i].DailySales;
+for (let i = 0; i < locations.length; i++) {
+  locations[i].hourToSale();
+  locations[i].render();
+  
+}
+console.log(locations);
 
- }
+// footer 
+function footer () {
+  let footerrow = document.createElement('tr');
+  CreateTable.appendChild(footerrow);
+  
+  let firstcolumn = document.createElement('th');
+  footerrow.appendChild(firstcolumn);
+  firstcolumn.textContent='Totals';
+
+
+  for (let j = 0; j < hours.length; j++) {
+    let total=0;
+    for (let k = 0; k < locations.length; k++) {
+      total += locations[k].randomPerHour[j];
+    }
+    console.log(total);
+    
+  let lastindex = document.createElement('th');
+  footerrow.appendChild(lastindex);
+  lastindex.textContent=total;
+    
+  }
+
+    let lasttotal=0;
+    for (let k = 0; k < locations.length; k++) {
+      lasttotal +=locations[k].DailySales;
+    }
+    console.log(lasttotal);
+    
+  let lastindex = document.createElement('th');
+  footerrow.appendChild(lastindex);
+  lastindex.textContent=lasttotal;
+  }
+
+footer();
+
 
 
 
