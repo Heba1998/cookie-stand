@@ -1,7 +1,7 @@
 
 'use strict'
 let hours = ['6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', '12:00AM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'];
-
+let locations=[];
 
 function Cookies(location, minCus, maxCus, avg) {
   this.location = location;
@@ -11,7 +11,7 @@ function Cookies(location, minCus, maxCus, avg) {
   this.randomPerHour = [];
   this.DailySales = 0;
   this.hourToSale();
-
+locations.push(this);
 }
 
 Cookies.prototype.Random = function () {
@@ -36,9 +36,6 @@ let Dubai = new Cookies('Dubai', 11, 38, 3.7);
 let Tokyo = new Cookies('Tokyo', 3, 24, 1.2);
 let Paris = new Cookies('Paris', 20, 38, 2.3);
 let Lima = new Cookies('Lima', 2, 16, 4.6);
-
-let locations = [Seattle, Dubai, Tokyo, Paris, Lima];
-
 
 
 let parent = document.getElementById('sales-Data');
@@ -133,7 +130,54 @@ function footer () {
   lastindex.textContent=lasttotal;
   }
 
-footer();
+ 
+
+
+//Create form
+
+let CookiesForm = document.getElementById('MyForm');
+CookiesForm.addEventListener('submit', AddNewShop);
+
+
+
+function AddNewShop(event) {
+    event.preventDefault();
+    
+    let location = event.target.location.value;
+    console.log(location);
+    let minCus = parseInt(event.target.Minimum.value);
+    console.log(minCus);
+     let maxCus = parseInt(event.target.Maximum.value);
+     console.log(maxCus);
+    let avg = parseFloat(event.target.average.value);
+    console.log(avg);
+
+      let NewShop = new Cookies(location, minCus, maxCus, avg);
+      locations.push(NewShop);
+      NewShop.hourToSale();
+      NewShop.render();
+  
+    
+      
+    }
+    footer();
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
