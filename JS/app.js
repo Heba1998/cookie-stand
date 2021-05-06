@@ -154,7 +154,7 @@ footer();
     
      let NewStore = new Cookies(location,minCus,maxCus,avg)
     NewStore.render();
-
+    NewStore.hourToSale();
     footer();
    
 }
