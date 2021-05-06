@@ -116,72 +116,48 @@ function footer () {
   let lastindex = document.createElement('th');
   footerrow.appendChild(lastindex);
   lastindex.textContent=total;
-    
-  }
+  
+}
 
-    let lasttotal=0;
-    for (let k = 0; k < locations.length; k++) {
-      lasttotal +=locations[k].DailySales;
-    }
-    console.log(lasttotal);
-    
-  let lastindex = document.createElement('th');
-  footerrow.appendChild(lastindex);
-  lastindex.textContent=lasttotal;
-  }
+let lasttotal=0;
+for (let k = 0; k < locations.length; k++) {
+  lasttotal +=locations[k].DailySales;
+}
+console.log(lasttotal);
 
+let lastindex = document.createElement('th');
+footerrow.appendChild(lastindex);
+lastindex.textContent=lasttotal;
+}
+
+footer();
  
-
 
 //Create form
 
-let CookiesForm = document.getElementById('MyForm');
-CookiesForm.addEventListener('submit', AddNewShop);
+ let CookiesForm = document.getElementById('MyForm');
+ CookiesForm.addEventListener('submit', AddNewShop);
 
+ function AddNewShop(event) {
+     event.preventDefault();
 
+    CreateTable.deleteRow(CreateTable.rows.length -1);
 
-function AddNewShop(event) {
-    event.preventDefault();
-    
     let location = event.target.location.value;
-    console.log(location);
-    let minCus = parseInt(event.target.Minimum.value);
-    console.log(minCus);
-     let maxCus = parseInt(event.target.Maximum.value);
-     console.log(maxCus);
-    let avg = parseFloat(event.target.average.value);
-    console.log(avg);
-
-      let NewShop = new Cookies(location, minCus, maxCus, avg);
-      locations.push(NewShop);
-      NewShop.hourToSale();
-      NewShop.render();
-  
+     console.log(location);
+     let minCus = parseInt(event.target.Minimum.value);
+     console.log(minCus);
+      let maxCus = parseInt(event.target.Maximum.value);
+      console.log(maxCus);
+     let avg = parseFloat(event.target.average.value);
+     console.log(avg);
     
-      
-    }
+     let NewStore = new Cookies(location,minCus,maxCus,avg)
+    NewStore.render();
+
     footer();
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
+}
  
 // let Seattle = {
 //     location : 'Seattle',
