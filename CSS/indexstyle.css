@@ -1,0 +1,128 @@
+
+
+  body{
+    background-image: url("../img/background1.jpg");
+    margin: 50px;
+    padding: 10px;
+}
+
+p{
+color: #860a2b;
+font-family:Georgia;
+padding: 19px;
+}
+
+.titl{
+font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  color: #5e0640;
+}
+
+header {
+  background-color: #ffc0b6;
+  justify-content: center;
+  text-align: center;
+  border: salmon 15px ridge;
+
+}
+
+
+.top-nav{
+  width: 40%;
+  margin-left: 30%;
+  border-radius: 25%;
+  background-color: salmon;
+
+}
+
+.top-nav ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-width: thick;
+  border-color: #E8265B;
+  border-style: solid;
+  margin-bottom: 10px;
+
+}
+ 
+
+.top-nav ul li{
+
+margin: 15px;
+}
+
+
+
+main{
+  background-color: #FFB5AA;
+  border: salmon 15px ridge;
+  font-family: cursive;
+
+}
+
+
+
+.logo{
+
+  float: right;
+  height: 50px;
+  width: 100px;
+  margin: 0%;
+  padding: 0%;
+}
+
+.prizes{
+  margin: 20px 60px 20px 60px ;
+  width: 200px;
+  height: 300px;
+  text-align: justify;
+  border-radius: 70px;
+ 
+  border: 18px double salmon;
+
+}
+
+
+.first-article ul li{
+  display:inline-block;
+
+margin:20px 60px 20px 70px ;
+}
+
+
+.first-article img{
+  margin:20px 95px 20px 90px ;
+  height: 250px;
+  width: 200px;
+  border-radius: 70px;
+  border: 18px double salmon;
+
+}
+
+main article p{
+  font-family: cursive;
+  font-size: 20px;
+  text-decoration-line: underline;
+}
+
+
+footer{
+  background-color: #FFB5AA;
+  border: salmon 15px ridge;
+  width: auto;
+  height: 400px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+
+
+footer img{
+  float: left;
+  width: 500px;
+  height: 300px;
+  margin: 20px;
+
+}
